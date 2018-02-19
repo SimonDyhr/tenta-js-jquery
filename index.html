@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/primaryStyling.css">
+        <link rel="stylesheet" href="css/checkout.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+
+        <!-- Menu -->
+        <div class="menu">
+            <button id="menuProducts">Products</button>
+            <button id="menuContact">Contact us</button>
+        </div>
+
+        <!-- Products -->
+        <div id="products" style="display:none">
+        </div>
+
+        <!-- Contact -->
+        <div id="checkout" class="checkout subpage" style="display:block">
+            <form id="checkoutForm" name="submitForm">
+                First name*:<input type="text" name="firstname" placeholder="First Name">
+                Last name*:<input type="text" name="lastname" placeholder="Last Name">
+                Email*:<input type="email" name="email" placeholder="email address">
+                Phone Number:<input type="text" name="phonenr" placeholder="phone number">
+                Street Address*:<input type="text" name="street" placeholder="Street Address">
+                Zip code*:<input type="text" name="zip" placeholder="Zip Code">
+                City*:<input type="text" name="city" placeholder="City">
+                Comments:<textarea name="" id="" cols="30" rows="10" placeholder="Please leave a comment."></textarea>
+                <input type="submit" value="Submit" id="submitbutton">
+            </form>
+            <div class="note">
+                * required fields
+            </div>
+        </div>
+
+
+    </body>
+
+    <!-- Add your site or application content here -->
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+
+</html>
