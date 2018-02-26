@@ -9,6 +9,7 @@
 
         <!-- Place favicon.ico in the root directory -->
 
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/primaryStyling.css">
@@ -23,15 +24,20 @@
         <!-- Menu -->
         <div class="menu">
             <button id="menuProducts">Products</button>
-            <button id="menuContact">Contact us</button>
+            <button id="menuContact">Checkout <span id="cartNumber" class="ion-ios-cart" aria-hidden="true"> 0</span></button>
         </div>
+
 
         <!-- Products -->
-        <div id="products" style="display:none">
+        <div id="products" style="display:block">
         </div>
 
-        <!-- Contact -->
-        <div id="checkout" class="checkout subpage" style="display:block">
+        <!-- Checkout -->
+        <div id="checkout" class="checkout subpage" style="display:none">
+
+            <div id="cart-list">
+            </div>
+
             <form id="checkoutForm" name="submitForm">
                 First name*:<input type="text" name="firstname" placeholder="First Name">
                 Last name*:<input type="text" name="lastname" placeholder="Last Name">
@@ -54,5 +60,6 @@
     <!-- Add your site or application content here -->
     <script src="js/main.js"></script>
     <script src="js/checkout.js"></script>
+    <script src="js/cart.js"></script>
 
 </html>
