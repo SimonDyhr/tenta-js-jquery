@@ -40,21 +40,27 @@ function addToCart(value){
 
 //Update and draw shopping cart
 function drawCart(){
+    var insideHTML = "";
     var i;
+    var y = 0;
     for (i = 0; i < items.length; i++) {
+        y++; //For table number
 
+        //Find the Item in the Products() array
         var obj = products.find(o => o.id === Number(items[i].id));
 
         var html = [
-            "<div class='productsInCart'>",
-                "<div class='productName'>" + obj.productName + "</div>",
-                "<div class='increaseAmount'><button id='" + i + "' onclick='increaseAmount(this.id)'>+</button></div>",
-                "<div class='productAmount' id='increaseAmount" + i + "'>" + items[i].amount + "</div>",
-                "<div class='decreaseAmount'><button id='" + i + "' onclick='decreaseAmount(this.id)'>-</button></div>",
-            "</div>"
+            "<tr>",
+                "<div class='productsInCart'>",
+                    "<th scope='row'>" + y + "</th>",
+                    "<td><div class='productName'>" + obj.productName + "</div></td>",
+                    "<td><div class='increaseAmount text-center'><button id='" + i + "' onclick='increaseAmount(this.id)'>+</button></div></td>",
+                    "<td><div class='productAmount text-center' id='increaseAmount" + i + "'>" + items[i].amount + "</div></td>",
+                    "<td><div class='decreaseAmount text-center'><button id='" + i + "' onclick='decreaseAmount(this.id)'>-</button></div></td>",
+                "</div>",
+            "</tr>",
         ].join('');
 
-        var insideHTML;
         insideHTML += html;
     }
 
@@ -113,6 +119,13 @@ function decreaseAmount(value){
     shoppingCartAmount.innerHTML = items[x].amount;
 }
 
+
+
+
+items.push({id: 1, amount: 1});
+items.push({id: 2, amount: 1});
+items.push({id: 3, amount: 1});
+drawCart();
 
 
 

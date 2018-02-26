@@ -24,27 +24,34 @@ console.log("Prices:", prices);*/
 * Loopen för produkter
 *
 */
+var insideHTML = "";
 var i;
 for (i = 0; i < products.length; i++) {
 
-    /*
-    BUILDUP
 
-     <div class='product' id='product" + i +"'>
-        "<div class='productName' id='productName" + i +"'>" + products[i].productName + "</div>";
-        "<div class='productPrice' id='productPrice" + i +"'>" + products[i].price + "kr</div>";
-        "<div class='productDescription' id='productDescription" + i +"'>" + products[i].description + "</div>";
-        "<div class='productImage' id='productImage" + i +"'>
-            <img src='" + products[i].mainImage + "'>
-         </div>";
-         <button class='add-to-cart' data-name='" + products[i].id + "'> Köp </button>
-     </div>
+    var html = [
+        "<br /><div class='product row' id='product" + i +"'>",
+            "<div class='col-md-7'>",
+                "<div class='productName' id='productName" + i +"'><h4>" + products[i].productName + "</h4></div>",
+                "<div class='productPrice' id='productPrice" + i +"'><h6>" + products[i].price + "kr</h6></div>",
+                "<div class='productDescription' id='productDescription" + i +"'>" + products[i].description + "</div>",
+                "<button class='add-to-cart btn btn-primary' onclick='addToCart(this.id)' id='" + products[i].id + "'> Köp </button>",
+            "</div>",
+            "<div class='productImage col-md-5' id='productImage" + i +"'><img class='img-fluid rounded mb-3 mb-md-0' src='" + products[i].mainImage + "'></div>",
+            "",
+        "</div>"
+    ].join('');
 
-    */
 
-    var div = document.getElementById('products');
-    div.innerHTML += "<div class='product' id='product" + i +"'><div class='productName' id='productName" + i +"'>" + products[i].productName + "</div><div class='productPrice' id='productPrice" + i +"'>" + products[i].price + "kr</div><div class='productDescription' id='productDescription" + i +"'>" + products[i].description + "</div><div class='productImage' id='productImage" + i +"'><img src='" + products[i].mainImage + "'></div><button class='add-to-cart' onclick='addToCart(this.id)' id='" + products[i].id + "'> Köp </button></div>";
+    insideHTML += html;
+
+    //var div = document.getElementById('products');
+    //div.innerHTML += "<div class='product' id='product" + i +"'><div class='productName' id='productName" + i +"'>" + products[i].productName + "</div><div class='productPrice' id='productPrice" + i +"'>" + products[i].price + "kr</div><div class='productDescription' id='productDescription" + i +"'>" + products[i].description + "</div><div class='productImage' id='productImage" + i +"'><img src='" + products[i].mainImage + "'></div><button class='add-to-cart' onclick='addToCart(this.id)' id='" + products[i].id + "'> Köp </button></div>";
 }
+
+//Draw the shoppingcart
+var productList = document.getElementById('products');
+productList.innerHTML = insideHTML;
 
 
 

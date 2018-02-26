@@ -17,10 +17,11 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e){
 
 function inputValidation(field) {
     if (field.value === "") {
-        field.setAttribute("class", "invalid");
+        field.setAttribute("class", "invalid form-control");
         return false;
     } else {
         field.removeAttribute("class", "invalid");
+        field.setAttribute("class", "form-control");
         return true;
     }
 }
