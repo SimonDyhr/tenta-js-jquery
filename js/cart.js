@@ -121,11 +121,11 @@ function decreaseAmount(value){
 
 
 
-
-items.push({id: 1, amount: 1});
+/* DUMMY DATA - Uncomment beneath to get 3 items in cart*/
+/*items.push({id: 1, amount: 1});
 items.push({id: 2, amount: 1});
 items.push({id: 3, amount: 1});
-drawCart();
+drawCart();*/
 
 
 
