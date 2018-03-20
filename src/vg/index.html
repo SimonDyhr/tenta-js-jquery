@@ -9,6 +9,27 @@
 <body>
 
     <!-- HTML för att implementera krav F -->
+    <form onsubmit="return false" >
+        ID:<br>
+        <input type="text" placeholder="0 - 9999" id="id">
+        <br>
+        Name:<br>
+        <input type="text" placeholder="name" id="name">
+        <br>
+        Price:<br>
+        <input type="text" placeholder="> 0" id="price">
+        <br>
+        Select:<br>
+        <select id="status">
+            <option value="OUT_OF_STOCK">OUT_OF_STOCK</option>
+            <option value="IN_STOCK">IN_STOCK</option>
+            <option value="DELIVERY_PENDING">DELIVERY_PENDING</option>
+        </select>
+        <br><br>
+        <button onclick="submitHandler()"> Submit </button>
+    </form>
+
+    <div id="showerrors"></div>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>

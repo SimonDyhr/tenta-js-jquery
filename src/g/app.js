@@ -109,7 +109,7 @@ function placeOrder() {
     } else {
         //push items into orderedItmes
         for (let i = 0; i < cartItems.length; i++) {
-            let order = cartItems[i];
+            let order = {productID: cartItems[i].id, noUnits: cartItems[i].amount};
             promise = new Promise(function(resolve, reject) {setTimeout(resolve, 0, order);});
             itemsOrdered.push(promise);
         }
@@ -124,6 +124,13 @@ function placeOrder() {
                     'Content-Type': 'application/json'
                     })
                 });
+
+                cartItems = [];
+                $('#cart-list').html(``);
+                $('#total-price').html('Total price: 0');
+
+                alert('Order successful!')
+
             })
     }
 }

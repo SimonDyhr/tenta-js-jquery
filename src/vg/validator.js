@@ -63,20 +63,32 @@ const FormValidator = {
     validators: {},
 
     addValidator(validatorName, validatorFunction) {
-        // spara undan en validator funktion med med ett givet namn.
+        if (!this.validators[validatorName]) {
+            // om det inte finns något värde satt för nyckeln givet av validatorName
+            this.validators[validatorName] = [];
+        }
+        // lägg till validatorn till listan
+        this.validators[validatorName].push(validatorFunction);
     },
 
     prepare(mapping) {
-        // spara undan ett mappningsobjekt mellan formulärfält och deras validators.
+        /* KAN INTE FÅ MÖGET ATT FUNKA, ger upp. Hem och plugga. */
     },
 
     validate(data) {
-        // för varje property (= formulärfält) i dataobjektet 
-        //  hämta ut motsvarande validator för property:n m.h.a mappningsobjektet och applicera den på property:ns 
+        // för varje property (= formulärfält) i dataobjektet
+        //  hämta ut motsvarande validator för property:n m.h.a mappningsobjektet och applicera den på property:ns
         //   värde (= formulärdata)
-        //  om validatorn returnerar false, skapa och lägg till ett felmeddelande i en lista. Felmeddelandet ska 
+        //  om validatorn returnerar false, skapa och lägg till ett felmeddelande i en lista. Felmeddelandet ska
         //   innehålla namnet på property:n.
         //
-        // returnera listan av felmeddelanden. 
+        // returnera listan av felmeddelanden.
+
+        /* KAN INTE FÅ MÖGET ATT FUNKA, ger upp. Hem och plugga. */
+        /* KAN INTE FÅ MÖGET ATT FUNKA, ger upp. Hem och plugga. */
+        /* KAN INTE FÅ MÖGET ATT FUNKA, ger upp. Hem och plugga. */
+
+        console.log(data);
+        return true;
     }
 }
