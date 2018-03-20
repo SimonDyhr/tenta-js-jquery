@@ -23,7 +23,6 @@ fetch('http://demo.edument.se/api/products')
     products = element;
     loadProperty();
     loadProducts();
-    console.log(products);
 });
 
 //cart array
@@ -70,11 +69,21 @@ function loadProducts() {
 
 
 function loadCart() {
+    let totalPrice = 0;
+
     for (let i = 0; i < cartItems.length; i++) {
 
-        let productInfo = products.find(product => product.Id === Number(cartItems[i].id)); //Find data from the retrieved ID
+        //Find data from the retrieved ID
+        let productInfo = products.find(product => product.Id === Number(cartItems[i].id));
 
-        // Push out the data
+        //Add price for each product amount
+        for (let k = 0; k < cartItems[i].amount; k++) {
+            totalPrice = totalPrice + Number(productInfo.Price);
+        }
+        //Write out price
+        $('#total-price').html('Total price: ' + totalPrice);
+
+        // write out Data
         $('#cart-list').append(`
         <tr>
             <div class='productsInCart'>
@@ -85,6 +94,40 @@ function loadCart() {
         `);
     }
 }
+
+
+
+
+
+
+function placeOrder() {
+    let itemsOrdered = [];
+
+    /* Check if cart is empty, cannot proceed if cart i empty */
+    if (cartItems.length === 0){
+        alert('Error: Cart is empty');
+    } else {
+        //push items into orderedItmes
+        for (let i = 0; i < cartItems.length; i++) {
+            let order = cartItems[i];
+            promise = new Promise(function(resolve, reject) {setTimeout(resolve, 0, order);});
+            itemsOrdered.push(promise);
+        }
+
+        Promise.all(itemsOrdered)
+            .then(function(data){
+                //POST order
+                fetch("http://localhost:3000/orders", {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: new Headers({
+                    'Content-Type': 'application/json'
+                    })
+                });
+            })
+    }
+}
+
 
 
 
